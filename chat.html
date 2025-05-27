@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <title>Chat n8n</title>
     <script src="https://unpkg.com/@n8n/chat@latest/dist/chat.js"></script>
   </head>
   <body>
     <div id="n8n-chat"></div>
     <script>
-      window.n8nChat.init({
-        webhookUrl: "https://jgiraudi.app.n8n.cloud/webhook/0d9f61b1-5894-4646-a560-185dcb8388b3/chat",
-        title: "Asistente AI",
-        description: "¿En qué puedo ayudarte?",
-        theme: {
-          color: "#0078d4",
-          buttonTextColor: "#ffffff"
+      window.addEventListener('load', function () {
+        if (window.n8nChat) {
+          window.n8nChat.init({
+            webhookUrl: "https://jgiraudi.app.n8n.cloud/webhook/0d9f61b1-5894-4646-a560-185dcb8388b3/chat",
+            title: "Asistente AI",
+            description: "¿En qué puedo ayudarte?",
+            theme: {
+              color: "#0078d4",
+              buttonTextColor: "#ffffff"
+            }
+          });
+        } else {
+          console.error("❌ n8nChat no está disponible. No se cargó el script.");
         }
       });
     </script>
